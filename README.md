@@ -1,5 +1,5 @@
 # Información de página:
-Esta página esta orientada a la venta de productos alimenticios, especificamente empanadas.
+Esta página (https://laempanaderia.netlify.app/) esta orientada a la venta de productos alimenticios, especificamente empanadas.
 Las empanadas mostradas a la venta son de diferentes regiones del País(Argentina).
 Es una web intuitiva, en donde se pueden encontrar diferentes secciones como la página de inicio donde se muestra los productos a la venta mediante card(tarjetas) con una imagen ilustrativa, el precio de venta y un botón para agregar a un carrito de compras.
 
@@ -15,6 +15,7 @@ Por último se encuentra la sección de pie de página de la web  la muestra un 
     -Nuestros Productos: hace una descripción de todos los productos ofecidos, mostrando también sus ingredientes con imagenes.
     Además muestra lo que en un futuro próximo se ofrecerá.
     -Pedido Via (mail): lleva a un formulario en donde se puede realizar el pedido de lo que se desea y forma de pago.
+    
     -Nosostros: detalla información de productos y  calidad.
     - Imagen de Ubicación: vincula con el iframe de google map.
     - Imagen de PedidoYa: Próximamente a implementar.

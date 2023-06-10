@@ -7,13 +7,14 @@
     --menu: #434443;
     --green: #41644A;
     --yellow: #f7f6c4ea;
-    --red: #ED2B2A;
+    /* --red: #ED2B2A; */
+    --red: #f01e1efd;
     --black: #000000;
     --footer:#F6BA6F;
     --aside:#ECC9EE;
     --fondo:#edebf9;
     --blue: #1f53c5;
-    --mostaza:rgb(246,167,0);
+    --colorPrimario:grey;
     --amarillo:rgba(255, 255, 0, 0.89)
 }
 html {
@@ -33,7 +34,7 @@ body {
     grid-template-areas:        
         'logo    menu'
         'banner  banner'
-        'aside   main'
+        'main   main'
         'footer  footer';
     grid-template-columns: 10% auto;    
     grid-template-rows: 10% auto auto 10%;
@@ -56,7 +57,8 @@ header img{
 
 nav {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    justify-content: space-evenly;
     align-items: center;
     padding-top:20px ;
     padding-left: 5%;
@@ -115,13 +117,13 @@ main {
 
 .productosClass {
     display: flex;
-    justify-content: space-between; /** espara tener la imagenes separadas **/ 
+    justify-content: space-between; /** separar imagenes **/ 
     flex-wrap: wrap;
 }
 .card{
     background: #f5f5f5;
     border: 1px solid #b5b5b5;
-    flex: 0 0 calc(33.3% - 1rem);
+    flex: 0 0 calc(33.3% - 2rem);
     margin-bottom: 2rem;
     border-radius: 0.5rem;
 }
@@ -138,15 +140,18 @@ main {
 }
  
 .precio {
-    color: var(--colorPrimario);
+    /* color: var(--colorPrimario); */
+    color: var(--black);
     font-weight: 700;
     font-size: 1.9rem;
 }
 
 .agregarBtn {
     width: 100%;
-    color: var(--colorPrimario);
-    background-color: #fbec45;
+    /* color: var(--colorPrimario); */
+    color: var(--black);
+    /* background-color: #fbec45; */
+    background-color: #b8b7b5cc;
     font-weight: 700; 
     font-size: 1.8rem;
     padding: 1.1rem 3rem;
@@ -159,7 +164,7 @@ main {
 }
 .agregarBtn:hover {
     cursor: pointer;
-    background-color: #fad100; 
+    background-color: #fbec45; 
 }
 
 .cantidadCarritoClass {
@@ -172,6 +177,7 @@ main {
     margin: 2rem auto;
     border: none;
     background-color: var(--red);
+    opacity: .8;
     border-radius: 0.5rem;
     padding: 2rem 9.5rem;
     color: white;
@@ -199,7 +205,9 @@ table { /* falta modificar los estilos */
     font-size: 16px;
 }
 th {
-    background-color: #fbec45;
+    background-color:#b8b7b5cc;
+    opacity: .8;
+    /* background-color: #fbec45; */
     font-weight: bold;
     padding: 1.5rem;
 }
@@ -214,7 +222,6 @@ tbody {
 }
 
 .borrarProducto {
-    /* max-width: 40%; */
     padding: 1rem 1rem;
     background-color: #fff;
     border: none;
@@ -225,7 +232,7 @@ tbody {
 }
 
 
-aside {
+/* aside {
     
     grid-area: aside;
     background: rgba(0, 0, 0, 0.808);
@@ -235,12 +242,11 @@ aside {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-}
+} */
 footer {
     grid-area: footer;
     margin-top: auto;
-    background-color: #000000;
-    
+    /* background-color: #000000;     */
 }
 .art{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -273,32 +279,43 @@ section > img:hover{
     opacity: 1;
     filter: contrast(120%);
 }
+.banner{
+    grid-area: banner;
+    grid-template-columns:0% auto;
+    grid-template-rows: auto;
+}
 .sectionP{
-    text-align:center;
+    display: flex;
+    text-align:left;
+    justify-content: left;
     /* color:rgba(255, 255, 0, 0.89); */
-    color: var(--amarillo);
+    color: whitesmoke;
     font-family: 'Rock Salt', cursive;
     font-size:small;
-    background: rgba(0, 0, 0, 0.808);
+    
 }
 .content{
-    /* background: rgba(255, 255, 0, 0.808); */
-    background: var(--amarillo);
+   background: var(--menu);
     width: 100%;
     height: 100px;
     display: grid;
-    grid-template-columns: 10% auto;
+    /* grid-template-columns: auto auto; */
+    
     
 } 
 .dfoot{
-    display: grid;
+    display:flex;
     place-content: center;
-    margin: auto;
+    justify-content: space-between;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 .dfoot>a{
-    font-size: 30px;
+    font-size: 16px;
+    
 }
-
 @media (max-width:768px) {
     .container{
         grid-template-areas:  
@@ -315,25 +332,29 @@ section > img:hover{
     margin-top: .05px;
    }
     .mapa{
-        display: flex;
-        margin-right: 10px;
+        display: none;
+        /* margin-right: 10px; */
     }
-    
     .mapa a{
-        display: flex;
-        justify-content: center;
-        width: 15px;
-        height: 35px;
+        display: none;
     }
-    
-    .aside{
+    .dfoot a{
+        font-size:2vh;
+    }
+    .dfoot{
         display: flex;
-        flex-direction: row;
+        flex-direction: row; 
         align-items: center;
-        justify-content: space-between;
-        font-size: 15px;
+        justify-content: space-evenly;
+        
 
     }
+    .mapa{
+        display: none;
+    }
+    .sectionP{
+        display: none;
+    }   
 
 }
 @media (max-width:425px) {
@@ -343,12 +364,11 @@ section > img:hover{
          ' logo logo'
          'menu menu'
          'banner banner'
-         'aside aside'
          'main main'
          'footer footer'
          ;
-        grid-template-columns:20% auto;
-        grid-template-rows: auto ;
+         grid-template-columns:auto auto;
+         grid-template-rows: auto ;
     }
     header img{ 
         display: flex;
@@ -366,26 +386,26 @@ section > img:hover{
         background-color: var(--menu);
         grid-area: menu;
         font-weight: bold; 
+        font-size: 12;
     }
     nav > a{
         font-size: 12.5px;
     }
-    .sectionP{
+    /* .sectionP{
         text-align:center;
-        /* color:rgba(255, 255, 0, 0.89); */
+        color:rgba(255, 255, 0, 0.89); 
         color: var(--amarillo);
         font-family: 'Rock Salt', cursive;
         font-size:x-small;
         background: rgba(0, 0, 0, 0.884);
-    }   
+    }    */
     .content{
         /* background: rgba(255, 255, 0, 0.808); */
         background: var(--amarillo);
         width: 100%;
         height: 100px;
         display: grid;
-        grid-template-columns: 25% auto;
-        
+        grid-template-columns: auto auto;        
     } 
     .mapa{
         display: flex;
@@ -393,23 +413,20 @@ section > img:hover{
     }
     
     .mapa a{
-        display: flex;
-        justify-content: center;
-        width: 15px;
-        height: 15px;
+        display:none;
     }
-    
-    .aside{
+    .cardbody {
+        margin: 1.5rem;
+    }    
+    /* .aside{
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
         font-size: 1.5rem;
 
-    }
-    .cardbody {
-        margin: 1.5rem;
-    }
+    } */
+
     .card{
         background: #f5f5f5;
         border: 1px solid #b5b5b5;
@@ -423,9 +440,28 @@ section > img:hover{
     }
     
     .precio {
-        color: var(--colorPrimario);
+        color: var(--black);
         font-weight: 700;
         font-size: .9rem;
+    }
+    .content{
+        background: var(--menu);
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        margin-top: auto;
+     } 
+    .dfoot{
+        display: flex;
+        place-content: center;
+        justify-content: space-evenly;
+
+    }
+    .dfoot>a{
+        font-size:1.8vh;
+        
     }
 
 }

@@ -16,27 +16,28 @@
 }
 html {
     box-sizing: border-box;
-   /* Reset para REMS - 62.5% = 10px de 16 px */
-   font-size: 62.5%;
+    font-size: 62.5%;
     height: 100%;
 }
 body {
     width: 100%;;
     justify-content: center;
     align-items: center;
-    background-color:var(--fondo);
+    /* background-color:var(--fondo); */
+    background-color:var(--yellow);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    min-height: 100vh;
+    min-height: 100vh;   
 
 }
-
+p{
+    margin: 0;
+}
 .container{
     height: 100rem;
     display: grid;
-    grid-template-areas:
-        
+    grid-template-areas:        
         'logo menu'
-        'aside main'
+        'main main'
         'footer footer';
     grid-template-columns: 10% auto;    
     grid-template-rows: auto auto 10%;
@@ -45,6 +46,8 @@ body {
 
 
 header {
+    display: flex;
+    justify-content: center;
     grid-area: logo;
 
 }
@@ -68,7 +71,6 @@ nav {
     background-color: var(--menu);
     grid-area: menu;
     font-weight: bold; 
-    font-size: 10px; 
     font-size: 16px; 
 }
 
@@ -121,15 +123,15 @@ main {
     background: var(--yellow);
    
 }
-.sectionP{
+/* .sectionP{
     justify-content: start;
     text-align:center;
     color:rgba(255, 255, 0, 0.89);
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size:12px;
     background: rgba(0, 0, 0, 0.808);
-}
-aside{
+} */
+/* aside{
     grid-area: aside;   
     background: rgba(0, 0, 0, 0.808);
     justify-content: center;
@@ -142,27 +144,60 @@ aside{
     justify-content: space-between;
     align-items: center;
     
+} */
+
+.contenedor {
+    max-width: 120rem;
+    margin: 1rem auto;    
+    padding: 25px;
+    background-color: rgba(241, 243, 165, 0.593);
+    /* background-color: rgb(251, 248, 186); */
+    border-radius: 10px;
+    box-shadow: 0px 11px 15px -9px rgba(0,0,0,0.63);
+    margin-bottom: 3rem;
+    width: 85%;
 }
+
+
 footer {
     grid-area: footer;
     bottom: auto;
     margin-bottom: auto;
 }
 .art{
-    display: flex;
-    justify-content:space-between;
+    /* display: flex; */
+    /* justify-content: space-between; */
+    justify-content:space-evenly;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-align: left;
+    /* text-align: left; */
+    text-align: justify;
     padding: 40px;
-    font-size: 12px;
-
+    font-size: 14px;
+    /* font-size: 12px; */
 }
+
+/* se agrega a los demas si se usa grid */
+.art {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    grid-gap: 3rem;
+    justify-items: center;
+}
+/* .ingredientes{
+    margin-right: 3rem;
+} */
+
 
 h3{
     font-family: cursive;
     font-style: italic;
-
 }
+.titulo {
+    font-family: cursive;
+    font-size: 23px;
+    font-style: bold;
+}
+
 ol{
     text-align:left;
     justify-content: left;
@@ -170,27 +205,53 @@ ol{
     list-style-type: square;
 }
 .img{
-    justify-content: right;
-    width: 450px;
-    height: 200px;
+    justify-content: center;
+    /* width: 450px;
+    height: 200px; */
+    min-width: 300px;
+    width: 80%;
+    height: auto;
     border-radius: 30px;
 }
-.content{
-    background: var(--amarillo);
-    width: 100%;
-    height: 100px;
-    display: grid;
-    grid-template-columns: 10% auto;
+
+footer {
+    grid-area: footer;
+    margin-top: auto;
+    /* background-color: #000000;     */
+}
+
+.sectionP{
+    display: flex;
+    text-align: left;
+    justify-content: left;
+    /* color:rgba(255, 255, 0, 0.89); */
+    color: whitesmoke;
+    font-family: 'Rock Salt', cursive;
+    font-size:small;
+    background: var(--menu);
     
-} 
-.dfoot{
-    display: grid;
-    place-content: center;
-    margin: auto;
 }
-.dfoot>a{
-    font-size: 30px;
-}
+.content{
+    background: var(--menu);
+     width: 100%;
+     height: 100px;
+     display: grid;
+     /* grid-template-columns: auto auto; */     
+     
+ } 
+ .dfoot{
+     display:flex;
+     place-content: center;
+     justify-content: space-between;
+     margin-left: 20%;
+     margin-right: 20%;
+     margin-top: auto;
+     margin-bottom: auto;
+ }
+ .dfoot>a{
+     font-size: 16px;
+     
+ }
 
 @media (max-width:768px) {
     .container{
@@ -226,15 +287,18 @@ ol{
         grid-template-columns: auto;
         grid-template-rows: auto;
     }
+    nav{
+        font-size: 2vh;
+    }
     
-    .aside{
+   /* .aside{
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
         font-size: 15px;
 
-    }
+    }*/
     .art{
         width: 100%;
         display: flex;
@@ -244,10 +308,14 @@ ol{
         font-size: 12px;
     }
     .mapa >a{
+        display: none;
         width: 100%;
         height: 50px;
 
     }   
+    .sectionP{
+        display: none;
+    }
 
 } 
 
